@@ -25,3 +25,11 @@ body {
     text-wrap: balance;
   }
 }
+
+.heading-large {
+
+  font-size: 72px; /* или любой другой размер шрифта, который вы хотите */
+
+  font-weight: bold;
+
+}
