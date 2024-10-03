@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #eeedf6;
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.dark {
+  --background: #111112;
+  --foreground: #ededed;
+  header {
+    background-color: #111112;
   }
 }
 
@@ -19,6 +20,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 
 @layer utilities {
   .text-balance {
@@ -32,4 +34,40 @@ body {
 
   font-weight: bold;
 
+}
+
+.cover-text {
+  @apply transition duration-500 ease-in-out cursor-pointer;
+}
+
+.cover-text:hover {
+  @apply scale-110 translate-x-12 transition duration-500 ease-in-out cursor-pointer;
+}
+
+
+svg path {
+  fill: var(--foreground);
+}
+
+
+header {
+  background-color: #eeedf6;
+  display: flex;
+}
+
+.header-theme {
+  @apply transition duration-1000 ease-in-out;
+}
+
+.header-theme:hover {
+  @apply -rotate-45 transition duration-1000 ease-in-out;
+}
+
+.footer-item {
+  @apply transition duration-700 ease-in-out;
+  cursor: pointer;
+}
+
+.footer-item:hover {
+  @apply scale-110 transition duration-700 ease-in-out;
 }
