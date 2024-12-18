@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,48 +12,53 @@ export default function Home() {
           {[
             {
               src: "/1.png",
-              title: "1 THE STARRY NIGHT",
+              title: "The Starry Night",
               width: 672,
               height: 672,
             },
             {
               src: "/2.png",
-              title: "2 THE NIGHT CAFE",
+              title: "The Night Cafe",
               width: 672,
               height: 510,
             },
             {
               src: "/3.png",
-              title: "3 THE RED VINEYARD",
+              title: "The Red Vineyard",
               width: 528,
               height: 528,
             },
             {
               src: "/4.png",
-              title: "4 WARD IN THE HOSPITAL IN ARLES",
+              title: "Ward in the Hospital in Arles",
               width: 672,
               height: 930,
             },
             {
               src: "/5.png",
-              title: "5 PLOUGHMAN IN THE FIELDS NEAR ARLES",
+              title: "Ploughman in the Fields near Arles",
               width: 672,
               height: 510,
             },
             {
               src: "/6.png",
-              title: "6 PAUL CAUDUIN'S ARMCHAIR",
+              title: "Paul Gauguin's Armchair",
               width: 816,
               height: 816,
             },
           ].map((item, index) => (
             <div key={index} className="bg-cover">
-              <Image
-                src={item.src}
-                width={item.width}
-                height={item.height}
-                alt={`artwork ${index + 1}`}
-              />
+              <Link
+                href={`/artwork/${encodeURIComponent(item.title)}`}
+                className="bg-cover"
+              >
+                <Image
+                  src={item.src}
+                  width={item.width}
+                  height={item.height}
+                  alt={`Artwork titled ${item.title}`}
+                />
+              </Link>
               <div className="p-4 text-left">
                 <p className="cover-text text-sm">{item.title} →</p>
               </div>
@@ -71,13 +77,13 @@ export default function Home() {
         </p>
 
         <div className="flex flex-col md:flex-row justify-center gap-8 pt-16 mb-32 md:pt-32">
-          <div className="bg-cover rounded-xl md:">
+          <div className="bg-cover rounded-xl">
             <Image
               className="rounded-xl"
               src="/7.jpeg"
               width={447}
               height={631}
-              alt="test"
+              alt="A beautiful landscape painting by Van Gogh"
             />
           </div>
           <div className="visits-schedule flex flex-col">
@@ -85,7 +91,7 @@ export default function Home() {
               {
                 city: "Nuenen and Antwerp",
                 date: "1883",
-                place: "painting intern",
+                place: "Painting intern",
               },
               { city: "Paris", date: "1886", place: "Junior Painter" },
               {
@@ -95,19 +101,17 @@ export default function Home() {
               },
               { city: "Saint-Rémy", date: "1889", place: "Senior Painter" },
               {
-                city: "Auvers-sur-Oise",
+                city: "Auvers-sur-Oise ",
                 date: "1890",
-                place: "painting studio manager",
+                place: "Painting studio manager",
               },
             ].map((item, index) => (
               <div key={index} className="item p-4">
-                <div className="item-info flex justify-between mt -6">
+                <div className="item-info flex justify-between mt-6">
                   <p className="item-city text-4xl uppercase">{item.city}</p>
                   <p className="item-date text-4xl text-right">{item.date}</p>
                 </div>
-                <p className="item-place font-light text-xl uppercase">
-                  {item.place}
-                </p>
+                <p className="item-place text-lg">{item.place}</p>
               </div>
             ))}
           </div>
