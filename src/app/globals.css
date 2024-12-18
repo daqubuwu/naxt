@@ -21,7 +21,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -29,11 +28,9 @@ body {
 }
 
 .heading-large {
-
   font-size: 72px; /* или любой другой размер шрифта, который вы хотите */
 
   font-weight: bold;
-
 }
 
 .cover-text {
@@ -44,11 +41,9 @@ body {
   @apply scale-110 translate-x-12 transition duration-500 ease-in-out cursor-pointer;
 }
 
-
 svg path {
   fill: var(--foreground);
 }
-
 
 header {
   background-color: #eeedf6;
@@ -70,4 +65,49 @@ header {
 
 .footer-item:hover {
   @apply scale-110 transition duration-700 ease-in-out;
+}
+
+/* styles/ArtworkPage.module.css */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.artworkCard {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.artworkCard:hover {
+  transform: scale(1.05);
+}
+
+.artworkImage {
+  width: 100%;
+  height: auto;
+}
+
+.artworkTitle {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.artworkDescription {
+  font-size: 1rem;
+  color: #555;
+  padding: 0 10px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+  }
 }
