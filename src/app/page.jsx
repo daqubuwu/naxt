@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <div className="max-w-6xl w-full px-4">
         <h1 className="text-5xl md:text-7xl font-semibold text-left pt-16 md:pt-32 leading-tight">
           VINCENT VAN GOGH. POST-IMPRESSIONIST PAINTER AND ARTIST

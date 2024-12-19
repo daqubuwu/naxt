@@ -1,6 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import styles from "./[slug].module.css";
 
 const artworkData = {
   "The Starry Night": {
@@ -117,56 +119,28 @@ export async function getStaticProps({ params }) {
 }
 
 const Artwork = ({ artwork }) => {
-  // Check if artwork exists
-  if (!artwork) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center p-24">
-        <h1 className="text-5xl font-bold">Artwork not found</h1>
-        <Link href="/" className="text-blue-500 underline">
-          Return to Gallery
-        </Link>
-      </main>
-    );
-  }
-
-  // Define metadata directly
-  const metadata = {
-    title: artwork.title,
-    description: artwork.description,
-  };
-
   return (
-    <>
-      {/* Use the metadata in the head section */}
-      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-      </Head>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="flex flex-col items-center justify-center gap-16">
-          <h1 className="text-5xl font-bold">{artwork.title}</h1>
-          <Image
-            src={artwork.src}
-            width={672}
-            height={672}
-            alt={`Artwork titled ${artwork.title}`}
-            className="rounded-lg shadow-2xl"
-          />
-          <div className="text-lg font-light">
-            <p>{artwork.description}</p>
-            <p>
-              <b>Location:</b> {artwork.location}
-            </p>
-            <p>
-              <b>Date:</b> {artwork.date}
-            </p>
-            <p>
-              <b>Price:</b> {artwork.price}
-            </p>
-          </div>
-        </div>
-      </main>
-    </>
+    <div className={styles.container}>
+      <Link href="/" className={styles.backButton}>
+        Back to Home
+      </Link>
+      <div className={styles.artwork}>
+        <Image src={artwork.src} alt={artwork.title} width={500} height={500} />
+      </div>
+      <div className={styles.info}>
+        <h2>{artwork.title}</h2>
+        <p>{artwork.description}</p>
+        <p>
+          <strong>Location:</strong> {artwork.location}
+        </p>
+        <p>
+          <strong>Date:</strong> {artwork.date}
+        </p>
+        <p>
+          <strong>Price:</strong> {artwork.price}
+        </p>
+      </div>
+    </div>
   );
 };
 

@@ -1,0 +1,68 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+.backButton {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.backButton:hover {
+  color: #666;
+}
+
+.artwork {
+  width: 500px;
+  height: 500px;
+  margin-bottom: 2rem;
+}
+
+.artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.info {
+  text-align: left;
+}
+
+.info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.info p {
+  margin-bottom: 0.5rem;
+}
+
+.info strong {
+  font-weight: bold;
+}
+
+.info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600; /* Adjust font-weight to desired boldness */
+}
+
+.info p {
+  margin-bottom: 0.5rem;
+  line-height: 1.5; /* Adjust line-height for spacing */
+  font-weight: 400; /* Adjust font-weight for desired boldness */
+}
